@@ -2,11 +2,11 @@ package co.sharkanalytic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+@Controller
 public class SharkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SharkApplication.class, args);
@@ -14,6 +14,6 @@ public class SharkApplication {
 
 	@RequestMapping(value = "/")
 	public String home() {
-		return "Server is running on port 32000...";
+		return "index";
 	}
 }
