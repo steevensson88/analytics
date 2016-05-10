@@ -1,136 +1,189 @@
 package co.sharkanalytic.models;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Client {
-	private int id_client;
-	private String num_compte_client;
-	private String nom_client;
-	private Double solde_compte;
-	private Date datecreation;
-	private Double montant_compte;
-	
-	public Client(){
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlTransient;
 
-	}
-	
-	public Client(String num_compte_client, String nom_client, Double solde_compte, Double montant_compte,Date datecreation) {
-		super();
-		this.num_compte_client = num_compte_client;
-		this.nom_client = nom_client;
-		this.solde_compte = solde_compte;
-		this.datecreation = datecreation;
-		this.montant_compte=montant_compte;
-	}
+@Entity
+@Table(name = "clients")
 
-	public int getId_client() {
-		return id_client;
-	}
+public class Client implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_client")
+    private Integer idClient;
+    
+    @Column(name = "numcompte_client")
+    private String numcompteClient;
+    
+    @Column(name = "nom_client")
+    private String nomClient;
+    
+    @Column(name = "email_client")
+    private String emailClient;
+    
+    @Column(name = "adresse_client")
+    private String adresseClient;
+   
+    @Column(name = "solde_compte")
+    private Double soldeCompte;
+    @Column(name = "montant_compte")
+    private Double montantCompte;
+    @Column(name = "datecreation")
+    @Temporal(TemporalType.DATE)
+    private Date datecreation;
+    @JoinColumn(name = "id_agent", referencedColumnName = "id_agent")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Agent idAgent;
+    @JoinColumn(name = "id_agence", referencedColumnName = "id_agence")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Agence idAgence;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClient", fetch = FetchType.LAZY)
+    private List<Reclamation> reclamationsList;
 
-	public void setId_client(int id_client) {
-		this.id_client = id_client;
-	}
+    public Client() {
+    }
 
-	public String getNum_compte_client() {
-		return num_compte_client;
-	}
+    public Client(Integer idClient) {
+        this.idClient = idClient;
+    }
 
-	public void setNum_compte_client(String num_compte_client) {
-		this.num_compte_client = num_compte_client;
-	}
+    public Integer getIdClient() {
+        return idClient;
+    }
 
-	public String getNom_client() {
-		return nom_client;
-	}
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
+    }
 
-	public void setNom_client(String nom_client) {
-		this.nom_client = nom_client;
-	}
+    public String getNumcompteClient() {
+        return numcompteClient;
+    }
 
-	public Double getSolde_compte() {
-		return solde_compte;
-	}
+    public void setNumcompteClient(String numcompteClient) {
+        this.numcompteClient = numcompteClient;
+    }
 
-	public void setSolde_compte(Double solde_compte) {
-		this.solde_compte = solde_compte;
-	}
+    public String getNomClient() {
+        return nomClient;
+    }
 
-	public Date getDatecreation() {
-		return datecreation;
-	}
+    public void setNomClient(String nomClient) {
+        this.nomClient = nomClient;
+    }
 
-	public void setDatecreation(Date datecreation) {
-		this.datecreation = datecreation;
-	}
-	
-	
+    public String getEmailClient() {
+        return emailClient;
+    }
 
-	public Double getMontant_compte() {
-		return montant_compte;
-	}
+    public void setEmailClient(String emailClient) {
+        this.emailClient = emailClient;
+    }
 
-	public void setMontant_compte(Double montant_compte) {
-		this.montant_compte = montant_compte;
-	}
+    public String getAdresseClient() {
+        return adresseClient;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((datecreation == null) ? 0 : datecreation.hashCode());
-		result = prime * result + id_client;
-		result = prime * result
-				+ ((nom_client == null) ? 0 : nom_client.hashCode());
-		result = prime
-				* result
-				+ ((num_compte_client == null) ? 0 : num_compte_client
-						.hashCode());
-		result = prime * result
-				+ ((solde_compte == null) ? 0 : solde_compte.hashCode());
-		return result;
-	}
+    public void setAdresseClient(String adresseClient) {
+        this.adresseClient = adresseClient;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Client other = (Client) obj;
-		if (datecreation == null) {
-			if (other.datecreation != null)
-				return false;
-		} else if (!datecreation.equals(other.datecreation))
-			return false;
-		if (id_client != other.id_client)
-			return false;
-		if (nom_client == null) {
-			if (other.nom_client != null)
-				return false;
-		} else if (!nom_client.equals(other.nom_client))
-			return false;
-		if (num_compte_client == null) {
-			if (other.num_compte_client != null)
-				return false;
-		} else if (!num_compte_client.equals(other.num_compte_client))
-			return false;
-		if (solde_compte == null) {
-			if (other.solde_compte != null)
-				return false;
-		} else if (!solde_compte.equals(other.solde_compte))
-			return false;
-		return true;
-	}
+    public Double getSoldeCompte() {
+        return soldeCompte;
+    }
+
+    public void setSoldeCompte(Double soldeCompte) {
+        this.soldeCompte = soldeCompte;
+    }
+
+    public Double getMontantCompte() {
+        return montantCompte;
+    }
+
+    public void setMontantCompte(Double montantCompte) {
+        this.montantCompte = montantCompte;
+    }
+
+    public Date getDatecreation() {
+        return datecreation;
+    }
+
+    public void setDatecreation(Date datecreation) {
+        this.datecreation = datecreation;
+    }
+
+    public Agent getIdAgent() {
+        return idAgent;
+    }
+
+    public void setIdAgent(Agent idAgent) {
+        this.idAgent = idAgent;
+    }
+
+    public Agence getIdAgence() {
+        return idAgence;
+    }
+
+    public void setIdAgence(Agence idAgence) {
+        this.idAgence = idAgence;
+    }
+
+    @XmlTransient
+    public List<Reclamation> getReclamationList() {
+        return reclamationsList;
+    }
+
+    public void setReclamationsList(List<Reclamation> reclamationsList) {
+        this.reclamationsList = reclamationsList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idClient != null ? idClient.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Client)) {
+            return false;
+        }
+        Client other = (Client) object;
+        if ((this.idClient == null && other.idClient != null) || (this.idClient != null && !this.idClient.equals(other.idClient))) {
+            return false;
+        }
+        return true;
+    }
 
 	@Override
 	public String toString() {
-		return "Client [id_client=" + id_client + ", num_compte_client="
-				+ num_compte_client + ", nom_client=" + nom_client
-				+ ", solde_compte=" + solde_compte + ", datecreation="
-				+ datecreation + ", montant_compte=" + montant_compte + "]";
+		return "Client [idClient=" + idClient + ", numcompteClient="
+				+ numcompteClient + ", nomClient=" + nomClient
+				+ ", emailClient=" + emailClient + ", adresseClient="
+				+ adresseClient + ", soldeCompte=" + soldeCompte
+				+ ", montantCompte=" + montantCompte + ", datecreation="
+				+ datecreation + ", idAgent=" + idAgent + ", idAgence="
+				+ idAgence + ", reclamationsList=" + reclamationsList + "]";
 	}
 
+    
+    
 }
