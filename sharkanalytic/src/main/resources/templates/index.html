@@ -1,313 +1,324 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>SharkAnalityc</title>
-    
-    <link rel = "stylesheet" type = "text/css" href = "css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css"/>
-    <link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css"/>
-    <link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css"/>
-    <link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css"/>
-    <link rel="stylesheet" href="css/libs/jquery-jvectormap-1.2.2.css" type="text/css"/>
-    <link rel="stylesheet" href="css/libs/weather-icons.css" type="text/css"/>
-    <link rel="stylesheet" href="css/libs/select2.css" type="text/css"/>
-    <link type="image/x-icon" href="favicon.png" rel="shortcut icon"/>
-    
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>SharkAnalityc</title>
 
-    
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/compiled/theme_styles.css" />
+<link rel="stylesheet" href="css/libs/daterangepicker.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/libs/jquery-jvectormap-1.2.2.css"
+	type="text/css" />
+<link rel="stylesheet" href="css/libs/weather-icons.css" type="text/css" />
+<link rel="stylesheet" href="css/libs/select2.css" type="text/css" />
+<link type="image/x-icon" href="favicon.png" rel="shortcut icon" />
+
+
+
 </head>
 <body>
-<div id="theme-wrapper">
-<header class="navbar" id="header-navbar">
-<div class="container">
-<a href="" id="logo" class="navbar-brand">
-    <img src="img/logo.png" alt="" class="normal-logo logo-white"/>
-    <img src="img/logo-black.png" alt="" class="normal-logo logo-black"/>
-    <img src="img/logo-small.png" alt="" class="small-logo hidden-xs hidden-sm hidden"/>
-</a>
+	<div id="theme-wrapper">
+		<header class="navbar" id="header-navbar">
+			<div class="container">
+				<a href="" id="logo" class="navbar-brand"> <img
+					src="img/logo.png" alt="" class="normal-logo logo-white" /> <img
+					src="img/logo-black.png" alt="" class="normal-logo logo-black" />
+					<img src="img/logo-small.png" alt=""
+					class="small-logo hidden-xs hidden-sm hidden" />
+				</a>
 
-<div class="clearfix">
-<button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
-    <span class="fa fa-bars"></span>
-</button>
-<div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
-    <ul class="nav navbar-nav pull-left">
-        <li>
-            <a class="btn" id="make-small-nav">
-                <i class="fa fa-bars"></i>
-            </a>
-        </li>
-        <li class="dropdown hidden-xs">
-            <a class="btn dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-bell"></i>
-                <span class="count">8</span>
-            </a>
-            <ul class="dropdown-menu notifications-list">
-                <li class="pointer">
-                    <div class="pointer-inner">
-                        <div class="arrow"></div>
-                    </div>
-                </li>
-                <li class="item-header">You have 6 new notifications</li>
+				<div class="clearfix">
+					<button class="navbar-toggle" data-target=".navbar-ex1-collapse"
+						data-toggle="collapse" type="button">
+						<span class="fa fa-bars"></span>
+					</button>
+					<div
+						class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+						<ul class="nav navbar-nav pull-left">
+							<li><a class="btn" id="make-small-nav"> <i
+									class="fa fa-bars"></i>
+							</a></li>
+							<li class="dropdown hidden-xs"><a
+								class="btn dropdown-toggle" data-toggle="dropdown"> <i
+									class="fa fa-bell"></i> <span class="count">8</span>
+							</a>
+								<ul class="dropdown-menu notifications-list">
+									<li class="pointer">
+										<div class="pointer-inner">
+											<div class="arrow"></div>
+										</div>
+									</li>
+									<li class="item-header">You have 6 new notifications</li>
 
-                <li class="item">
-                    <a href="#">
-                        <i class="fa fa-comment"></i>
-                        <span class="content">New comment on ‘Awesome P...</span>
-                        <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
-                    </a>
-                </li>
+									<li class="item"><a href="#"> <i class="fa fa-comment"></i>
+											<span class="content">New comment on ‘Awesome P...</span> <span
+											class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a></li>
 
-                <li class="item-footer">
-                    <a href="#">
-                        View all notifications
-                    </a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="nav-no-collapse pull-right" id="header-nav">
-    <ul class="nav navbar-nav pull-right">
-        <li class="dropdown profile-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="img/samples/avatar.png" alt=""/>
-                <span class="hidden-xs">Gabi</span> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href=""><i class="fa fa-user"></i>Profil</a></li>
-                <li><a href="#"><i class="fa fa-power-off"></i>Déconnexion</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-</div>
-</div>
-</header>
-<div id="page-wrapper" class="container">
-<div class="row">
-<div id="nav-col">
+									<li class="item-footer"><a href="#"> View all
+											notifications </a></li>
+								</ul></li>
+						</ul>
+					</div>
+					<div class="nav-no-collapse pull-right" id="header-nav">
+						<ul class="nav navbar-nav pull-right">
+							<li class="dropdown profile-dropdown"><a href="#"
+								class="dropdown-toggle" data-toggle="dropdown"> <img
+									src="img/samples/avatar.png" alt="" /> <span class="hidden-xs">Gabi</span>
+									<b class="caret"></b>
+							</a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a href=""><i class="fa fa-user"></i>Profil</a></li>
+									<li><a href="#"><i class="fa fa-power-off"></i>Déconnexion</a></li>
+								</ul></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="page-wrapper" class="container">
+			<div class="row">
+				<div id="nav-col">
 
-<section id="col-left" class="col-left-nano">
-<div id="col-left-inner" class="col-left-nano-content">
-<div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
-    <img alt="" src="img/samples/avatar.png"/>
-    <div class="user-box">
-<span class="name">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Gabi.</a>
-</span>
-<span class="status">
-<i class="fa fa-circle"></i> Connecté
-</span>
-    </div>
-</div>
-<div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">
-<ul class="nav nav-pills nav-stacked">
-<li class="nav-header nav-header-first hidden-sm hidden-xs">
-    Menu principal
-</li>
-<li class="active">
-    <a href="">
-        <i class="fa fa-dashboard"></i>
-        <span>Tableau de bord</span>
-        <span class="label label-primary label-circle pull-right">28</span>
-    </a>
-</li>
-<li>
-    <a href="#" class="dropdown-toggle">
-        <i class="fa fa-wrench"></i>
-        <span>Paramètres</span>
-        <i class="fa fa-angle-right drop-icon"></i>
-    </a>
-    <ul class="submenu">
-        <li>
-            <a href="tables.html">
-                Enrégistrement
-            </a>
-        </li>
-        <li>
-            <a href="">
-                Importation
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <a href="#" class="dropdown-toggle">
-        <i class="fa fa-users"></i>
-        <span>Clients</span>
-        <i class="fa fa-angle-right drop-icon"></i>
-    </a>
-    <ul class="submenu">
-        <li>
-            <a href="#" >
-                Enrégistrement
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="setContent('/import',0)">
-                Importation
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <a href="#" class="dropdown-toggle">
-        <i class="fa fa-envelope"></i>
-        <span>Reclamations</span>
-        <i class="fa fa-angle-right drop-icon"></i>
-    </a>
-    <ul class="submenu">
-        <li>
-            <a href="#" onclick="setContent('/reclamation',0)">
-                Nouveau
-            </a>
-        </li>
-        <li>
-            <a href="email-detail.html">
-                Consulter
-            </a>
-        </li>
-    </ul>
-</li>
-<li>
-    <a href="#" class="dropdown-toggle">
-        <i class="fa fa-bar-chart-o"></i>
-        <span>Reporting</span>
-        <i class="fa fa-angle-right drop-icon"></i>
-    </a>
-    <ul class="submenu">
-        <li>
-            <a href="graphs-morris.html">
-                Etat globaux
-            </a>
-        </li>
-        <li>
-            <a href="graphs-flot.html">
-                Statistiques
-            </a>
-        </li>
-    </ul>
-</li>
-</ul>
-</div>
-</div>
-</section>
+					<section id="col-left" class="col-left-nano">
+						<div id="col-left-inner" class="col-left-nano-content">
+							<div id="user-left-box"
+								class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+								<img alt="" src="img/samples/avatar.png" />
+								<div class="user-box">
+									<span class="name"> <a href="#" class="dropdown-toggle"
+										data-toggle="dropdown"> Gabi.</a>
+									</span> <span class="status"> <i class="fa fa-circle"></i>
+										Connecté
+									</span>
+								</div>
+							</div>
+							<div class="collapse navbar-collapse navbar-ex1-collapse"
+								id="sidebar-nav">
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header nav-header-first hidden-sm hidden-xs">
+										Menu principal</li>
+									<li class="active"><a href=""> <i
+											class="fa fa-dashboard"></i> <span>Tableau de bord</span> <span
+											class="label label-primary label-circle pull-right">28</span>
+									</a></li>
+									<li><a href="#" class="dropdown-toggle"> <i
+											class="fa fa-wrench"></i> <span>Paramètres</span> <i
+											class="fa fa-angle-right drop-icon"></i>
+									</a>
+										<ul class="submenu">
+											<li><a href="tables.html"> Enrégistrement </a></li>
+											<li><a href=""> Importation </a></li>
+										</ul></li>
+									<li><a href="#" class="dropdown-toggle"> <i
+											class="fa fa-users"></i> <span>Clients</span> <i
+											class="fa fa-angle-right drop-icon"></i>
+									</a>
+										<ul class="submenu">
+											<li><a href="#"> Enrégistrement </a></li>
+											<li><a href="#" onclick="setContent('/import',0)">
+													Importation </a></li>
+										</ul></li>
+									<li><a href="#" class="dropdown-toggle"> <i
+											class="fa fa-envelope"></i> <span>Reclamations</span> <i
+											class="fa fa-angle-right drop-icon"></i>
+									</a>
+										<ul class="submenu">
+											<li><a href="#" onclick="setContent('/reclamation',0)">
+													Nouveau </a></li>
+											<li><a href="email-detail.html"> Consulter </a></li>
+										</ul></li>
+									<li><a href="#" class="dropdown-toggle"> <i
+											class="fa fa-bar-chart-o"></i> <span>Reporting</span> <i
+											class="fa fa-angle-right drop-icon"></i>
+									</a>
+										<ul class="submenu">
+											<li><a href="graphs-morris.html"> Etat globaux </a></li>
+											<li><a href="graphs-flot.html"> Statistiques </a></li>
+										</ul></li>
+								</ul>
+							</div>
+						</div>
+					</section>
 
-<div id="nav-col-submenu"></div>
-</div>
-<div id="content-wrapper">
+					<div id="nav-col-submenu"></div>
+				</div>
+				<div id="content-wrapper">
 
-<div class="row" id="main_content">
-<!-- Content -->
-<div class="col-lg-12">
-<div class="row">
-    <div class="col-lg-12">
-        <div id="content-header" class="clearfix">
-            <div class="pull-left">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active"><span>Tableau de bord</span></li>
-                </ol>
-                <h1>Tableau de bord</h1>
-            </div>
-            <div class="pull-right hidden-xs">
-                <div class="xs-graph pull-left">
-                    <div class="graph-label">
-                        <b><i class="fa fa-shopping-cart"></i> 838</b> Orders
-                    </div>
-                    <div class="graph-content spark-orders"></div>
-                </div>
-                <div class="xs-graph pull-left mrg-l-lg mrg-r-sm">
-                    <div class="graph-label">
-                        <b>&dollar;12.338</b> Revenues
-                    </div>
-                    <div class="graph-content spark-revenues"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-        <div class="main-box infographic-box colored emerald-bg">
-            <i class="fa fa-envelope"></i>
-            <span class="headline">Messages</span>
-            <span class="value">4.658</span>
-        </div>
-    </div>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-        <div class="main-box infographic-box colored green-bg">
-            <i class="fa fa-money"></i>
-            <span class="headline">Orders</span>
-            <span class="value">22.631</span>
-        </div>
-    </div>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-        <div class="main-box infographic-box colored red-bg">
-            <i class="fa fa-user"></i>
-            <span class="headline">Users</span>
-            <span class="value">92.421</span>
-        </div>
-    </div>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
-        <div class="main-box infographic-box colored purple-bg">
-            <i class="fa fa-globe"></i>
-            <span class="headline">Visits</span>
-            <span class="value">13.298</span>
-        </div>
-    </div>
-</div>
-</div>
-<!-- Content -->
-</div>
+					<div class="row" id="main_content">
+						<!-- Content -->
+						<div class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-12">
+									<div id="content-header" class="clearfix">
+										<div class="pull-left">
+											<ol class="breadcrumb">
+												<li><a href="#">Home</a></li>
+												<li class="active"><span>Tableau de bord</span></li>
+											</ol>
+											<h1>Tableau de bord</h1>
+										</div>
 
-<footer id="footer-bar" class="row">
-    <p id="footer-copyright" class="col-xs-12">
-        Tout droit reservé
-    </p>
-</footer>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3 col-sm-6 col-xs-12">
+									<div class="main-box infographic-box colored emerald-bg">
+										<i class="fa fa-users"></i> <span class="headline">Clients</span>
+										<span class="value">4.658</span>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-6 col-xs-12">
+									<div class="main-box infographic-box colored green-bg">
+										<i class="fa fa-envelope-o"></i> <span class="headline">Reclamation</span>
+										<span class="value">22.631</span>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-6 col-xs-12">
+									<div class="main-box infographic-box colored red-bg">
+										<i class="fa fa-envelope"></i> <span class="headline">Requêtes</span>
+										<span class="value">92.421</span>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm-6 col-xs-12">
+									<div class="main-box infographic-box colored purple-bg">
+										<i class="fa  fa-folder-open-o"></i> <span class="headline">Plaintes</span>
+										<span class="value">13.298</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="main-box">
+										<header class="main-box-header clearfix">
+											<h2>Evolution des reclamations</h2>
+										</header>
+										<div class="main-box-body clearfix">
+											<div id="graph-bar" style="height: 300px; padding: 0px; position: relative;">
+											
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Content -->
+					</div>
 
-</div>
-</div>
-</div>
-</div>
+					<footer id="footer-bar" class="row">
+						<p id="footer-copyright" class="col-xs-12">Tout droit reservé
+						</p>
+					</footer>
 
-<script src="js/jquery.js"></script>
-<script src="js/sharkanalytic.js"></script>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<script src="js/demo-skin-changer.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.nanoscroller.min.js"></script>
-<script src="js/demo.js"></script>
-<script src="js/moment.min.js"></script>
-<script src="js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="js/jquery-jvectormap-world-merc-en.js"></script>
-<script src="js/gdp-data.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/sharkanalytic.js"></script>
 
-<script src="js/flot/jquery.flot.min.js"></script>
-<script src="js/flot/jquery.flot.resize.min.js"></script>
-<script src="js/flot/jquery.flot.time.min.js"></script>
-<script src="js/flot/jquery.flot.threshold.js"></script>
-<script src="js/flot/jquery.flot.axislabels.js"></script>
-<script src="js/jquery.sparkline.min.js"></script>
+	<script src="js/demo-skin-changer.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.nanoscroller.min.js"></script>
+	<script src="js/demo.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="js/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="js/jquery-jvectormap-world-merc-en.js"></script>
+	<script src="js/gdp-data.js"></script>
 
-<script src="js/skycons.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/pace.min.js"></script>
-<script src="js/select2.min.js"></script>
+	<script src="js/flot/jquery.flot.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.pie.min.js"></script>
+	<script src="js/flot/jquery.flot.stack.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
+	<script src="js/flot/jquery.flot.time.min.js"></script>
+	<script src="js/flot/jquery.flot.orderBars.js"></script>
 
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/skycons.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/pace.min.js"></script>
+	<script src="js/select2.min.js"></script>
 
-<script src="js/jquery.dataTables.js"></script>
-<script src="js/dataTables.fixedHeader.js"></script>
-<script src="js/dataTables.tableTools.js"></script>
-<script src="js/jquery.dataTables.bootstrap.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
 
+	<script src="js/jquery.dataTables.js"></script>
+	<script src="js/dataTables.fixedHeader.js"></script>
+	<script src="js/dataTables.tableTools.js"></script>
+	<script src="js/jquery.dataTables.bootstrap.js"></script>
+	
+	<script>
+	$(function() {
+		if ($('#graph-bar').length) {
+			
+			var db1 = new Array();
+				db1.push([0, parseInt(Math.random() * 30)]);
+				db1.push([1, parseInt(Math.random() * 30)]);
+			
+
+			var db2 = new Array();
+				db2.push([0, parseInt(Math.random() * 30)]);
+				db2.push([1, parseInt(Math.random() * 30)]);
+			
+
+			var db3 = new Array();
+				db3.push([0, parseInt(Math.random() * 30)]);
+				db3.push([1, parseInt(Math.random() * 30)]);
+			
+			
+			var series = new Array();
+
+			series.push({
+				data : db1,
+				bars : {
+					show : true,
+					barWidth : 0.2,
+					order : 1,
+					lineWidth: 1,
+					fill: 1
+				}
+			});
+			series.push({
+				data : db2,
+				bars : {
+					show : true,
+					barWidth : 0.2,
+					order : 2,
+					lineWidth: 1,
+					fill: 1
+				}
+			});
+			series.push({
+				data : db3,
+				bars : {
+					show : true,
+					barWidth : 0.2,
+					order : 3,
+					lineWidth: 1,
+					fill: 1
+				}
+			}); 
+
+			$.plot("#graph-bar", series, {
+				colors: ['#e84e40', '#ffc107', '#8bc34a', '#03a9f4', '#9c27b0', '#90a4ae'],
+				grid: {
+					tickColor: "#ddd",
+					borderWidth: 0
+				},
+				shadowSize: 0
+			});
+		}
+	});
+		</script>
 
 </body>
 </html>
