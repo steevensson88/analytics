@@ -11,22 +11,19 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.sharkanalytic.models.Client;
 import co.sharkanalytic.repository.ClientRepository;
-
-public class ClientService {
+@Service
+public class ClientService  {
 	@Autowired
 	ClientRepository clientrepository;
 	
 	private XSSFWorkbook wb;
 	
-	public ClientService() {
-		
-	}
 
 	public List<Client> readFile(FileInputStream file) throws IOException {
-		//FileInputStream file=new FileInputStream("D:\\GABI\\test.xlsx");
 		wb = new XSSFWorkbook(file);
 		XSSFSheet sheet=wb.getSheetAt(0);
 		List<Client> clients= new ArrayList<Client>();
@@ -71,7 +68,6 @@ public class ClientService {
 	}
 	
 	public void add(Client client) {
-		System.out.print(client);
 		clientrepository.saveAndFlush(client);
 	}
 }
