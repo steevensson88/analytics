@@ -2,7 +2,7 @@ logging.level:
        co.sharkanalytic: DEBUG
        org.springframework: INFO
 server.port: 32000
-spring.datasource.url: jdbc:mysql://localhost:3306/SharkAnalytics
+spring.datasource.url: jdbc:mysql://localhost:3306/sharkAnalytic
 spring.datasource.username: root
 spring.datasource.password: steeve
 spring.datasource.testWhileIdle: true
