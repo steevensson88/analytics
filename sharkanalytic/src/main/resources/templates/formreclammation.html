@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>SharkAnalityc</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+<script src="js/demo-rtl.js"></script>
+<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css" />
+<link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css" />
+<link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css" />
+<link rel="stylesheet" href="css/libs/jquery-jvectormap-1.2.2.css" type="text/css" />
+<link rel="stylesheet" href="css/libs/weather-icons.css" type="text/css" />
+<link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css"/>
+<link rel="stylesheet" href="css/libs/select2.css" type="text/css"/>
+<link type="image/x-icon" href="favicon.png" rel="shortcut icon" />
+
+</head>
+<body>
+	<div id="theme-wrapper">
+		<header class="navbar" id="header-navbar"> </header>
+		<div id="page-wrapper" class="container">
+			<div class="row">
+				<div id="nav-col">
+
+					<section id="col-left" class="col-left-nano"></section>
+
+					<div id="nav-col-submenu"></div>
+				</div>
+				<div id="content-wrapper">
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-12">
+									<div id="content-header" class="clearfix">
+										<div class="pull-left">
+											<ol class="breadcrumb">
+												<li><a href="#">Reclamation</a></li>
+												<li class="active"><span>Nouvelle reclamation</span></li>
+											</ol>
+											<h1>Nouvelle reclamation</h1>
+										</div>
+										<div class="alert alert-success fade in pull-right" hidden="true" id="div_succes">
+									     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									     <i class="fa fa-check-circle fa-fw fa-lg"></i>
+									     <span id="succes"></span>
+									    </div>
+									    
+									    <div class="alert alert-danger fade in pull-right" hidden="true" id="div_error">
+									     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									     <i class="fa fa-times-circle fa-fw fa-lg"></i>
+									     <span id="error"></span>
+									    </div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="main-box">
+											<header class="main-box-header clearfix">
+												<h2>Nouvelle reclamation</h2>
+											</header>
+											<div class="main-box-body clearfix">
+												<form action="/postReclamation" class="sharkform" role="form" method="post" enctype="multipart/form-data" modelAttribute="reclamation">
+												
+												    <div class="alert alert-info" style="margin-bottom: 5px;padding-top: 5px;padding-bottom: 5px">Informations sur le compte</div>
+													<div class="form-group">
+													 <div class="col-lg-3">
+														<label for="num_compte_client"><span style="color:red">*</span>N° Compte</label> 
+														<input type="text" required="required" class="form-control" name="num_compte_client" id="num_compte_client" placeholder="N° de compte"/>
+													 </div>
+													 <div class="col-lg-3">
+														<label for="nom_client"><span style="color:red">*</span>Client</label> 
+														<input type="text" required="required" class="form-control" name="nom_client" id="nom_client" placeholder="Client"/>
+													 </div>
+													 <div class="col-lg-3">
+														<label for="id_agence">Agence</label> 
+														<input type="text" class="form-control" name="id_agence" id="id_agence" />
+													 </div>
+													 <div class="col-lg-3">
+														<label for="id_agent">Gestionnaire en charge</label> 
+														<input type="text" class="form-control" name="id_agent" id="id_agent" />
+													 </div>
+													</div>
+													
+													<div class="alert alert-info col-lg-12" style="margin-top: 10px;margin-bottom: 5px;padding-top: 5px;padding-bottom: 5px">Informations sur la reclamation</div>
+													<div class="form-group">
+													 <div class="col-lg-3 form-group-select2">
+														<label for="id_m_reception"><span style="color:red">*</span>Mode de reception</label>
+														<select style="width:100%" required="required" id="id_m_reception" name="id_m_reception" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Email</option>
+														 <option value="2">Courrier</option>
+														</select>
+													</div>
+													 <div class="col-lg-3">
+														<label for="date_client"><span style="color:red">*</span>Date de la correspondance du <b>client</b></label>
+														<div class="input-group">
+														 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														 <input type="text" id="date_client" name="date_client" class="form-control datepicker maskDate" />
+														</div>
+													</div>
+													
+													<div class="col-lg-3">
+														<label for="date_banque"><span style="color:red">*</span>Date de la correspondance de la <b>banque</b></label>
+														<div class="input-group">
+														 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														 <input type="text" id="date_banque" name="date_banque" class="form-control datepicker maskDate"/>
+														</div>
+													 </div>
+													 
+													 <div class="col-lg-3">
+														<label for="date_env_csq">Date de reception au CSQ</label>
+														<div class="input-group">
+														 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														 <input type="text" id="date_env_csq" name="date_env_csq" class="form-control datepicker maskDate" />
+														</div>
+													</div>
+													</div>
+													
+													
+													<div class="form-group">
+													 <div class="col-lg-6">
+														<label for="objet_reclamation"><span style="color:red">*</span>Objet de la reclamation/requête</label>
+														<textarea class="form-control" id="objet_reclamation" name="objet_reclamation" rows="2"></textarea>
+													 </div>
+													 
+													 <div class="col-lg-6">
+														<label for="detail_reclamation">Détails relatifs à la reclamation/requête</label>
+														<textarea class="form-control" id="detail_reclamation" name="detail_reclamation" rows="2"></textarea>
+													</div>
+													</div>
+													
+													<div class="form-group">
+													 <div class="col-lg-3 form-group-select2">
+														<label for="id_c_reception"><span style="color:red">*</span>Type de reclamation</label>
+														<select style="width:100%" required="required" id="id_c_reception" name="id_c_reception" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Reclamation</option>
+														 <option value="2">Requête</option>
+														 <option value="3">Plainte</option>
+														</select>
+													</div>
+													 <div class="col-lg-3 form-group-select2">
+														<label for="id_produit"><span style="color:red">*</span>Produit concerné</label>
+														<select style="width:100%" required="required" id="id_produit" name="id_produit" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Crédit</option>
+														 <option value="2">Epargne</option>
+														</select>
+													</div>
+													 
+													 <div class="col-lg-3 form-group-select2">
+														<label for="id_devise"><span style="color:red">*</span>Devise</label>
+														<select style="width:100%" required="required" id="id_devise" name="id_devise" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Yen</option>
+														 <option value="2">Livre</option>
+														</select>
+													 </div>
+													 
+													 <div class="col-lg-3">
+														<label for="montant_transaction"><span style="color:red">*</span>Montant de la transaction</label>
+														<input type="number" step="any" id="montant_transaction" name="montant_transaction" class="form-control"/>
+													 </div>
+													</div>
+													
+													<div class="form-group">
+													 <div class="col-lg-3 form-group-select2">
+														<label for="id_departement"><span style="color:red">*</span>Département</label>
+														<select style="width:100%" required="required" id="id_departement" name="id_departement" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">depart 1</option>
+														</select>
+													</div>
+													 <div class="col-lg-3 form-group-select2">
+														<label for="id_unite"><span style="color:red">*</span>Unité en charge</label>
+														<select style="width:100%" required="required" id="id_unite" name="id_unite" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Unité 1</option>
+														</select>
+													</div>
+													 
+													 <div class="col-lg-3 form-group-select2">
+														<label for="dep_id_departement"><span style="color:red">*</span>Département impacté</label>
+														<select style="width:100%" required="required" id="dep_id_departement" name="dep_id_departement" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Dept 1</option>
+														</select>
+													 </div>
+													 <div class="col-lg-3">
+														<label for="ref_transaction"><span style="color:red">*</span>Référence de la transaction</label>
+														<input type="text"  id="ref_transaction" name="ref_transaction" class="form-control"/>
+													 </div>
+													</div>
+													
+													
+													
+													<div class="form-group">
+													 <div class="col-lg-6">
+														<label for="cause_pbleme">Cause du dysfonctionnement</label>
+														<textarea class="form-control" id="cause_pbleme" name="cause_pbleme" rows="2"></textarea>
+													 </div>
+													 
+													 <div class="col-lg-6">
+														<label for="origine_pbleme">Origine du dysfonctionnement</label>
+														<textarea class="form-control" id="origine_pbleme" name="origine_pbleme" rows="2"></textarea>
+													</div>
+													</div>
+													
+													<div class="form-group">
+													 
+													 <div class="col-lg-3 form-group-select2">
+														<label for="dep_id_departement2"><span style="color:red">*</span>Département lié au dysfonctionnement</label>
+														<select style="width:100%" required="required" id="dep_id_departement2" name="dep_id_departement2" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">depart 1</option>
+														</select>
+													</div>
+													
+													 <div class="col-lg-3 form-group-select2">
+														<label for="date_cloture">Date de clôture</label>
+														<div class="input-group">
+														 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														 <input type="text" id="date_cloture" name="date_cloture" class="form-control datepicker maskDate"/>
+														</div>
+													</div>
+													 
+													 <div class="col-lg-3 form-group-select2">
+														<label for="date_env_client">Date de retour au client</label>
+														<div class="input-group">
+														 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+														 <input type="text" id="date_env_client" name="date_env_client" class="form-control datepicker maskDate"/>
+														</div>
+													 </div>
+													 <div class="col-lg-3">
+														<label for="etat_reclamation"><span style="color:red">*</span>Etat de la reclamation</label>
+														<input type="text"  id="etat_reclamation" name="etat_reclamation" class="form-control"/>
+													 </div>
+													 
+													</div>
+													
+													<div class="form-group">
+													<div class="col-lg-6">
+														<label for="action_entreprise">Action entreprise</label>
+														<textarea class="form-control" id="action_entreprise" name="action_entreprise" rows="2"></textarea>
+													 </div>
+													 <div class="col-lg-3 form-group-select2">
+														<label for="mod_id_m_reception"><span style="color:red">*</span>Type de réponse envoyé au client</label>
+														<select style="width:100%" required="required" id="mod_id_m_reception" name="mod_id_m_reception" class="sel2">
+														 <option value="">**Choisir**</option>
+														 <option value="1">Email</option>
+														 <option value="2">Courrier</option>
+														</select>
+													 </div>
+													 
+													 <div class="col-lg-3 form-group-select2">
+														<label for="agent_resolu">Personne ayant résolu la reclamation</label>
+														<input type="text" id="agent_resolu" name="agent_resolu" class="form-control"/>
+													 </div>
+													 
+													 
+													</div>
+													
+													<div class="col-lg-12" style="margin-top: 10px">
+														<button type="submit" class="btn btn-success pull-right">Enrégistrer</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<footer id="footer-bar" class="row">
+						<p id="footer-copyright" class="col-xs-12">Tout droit reservé
+						</p>
+					</footer>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/sharkanalytic.js"></script>
+	<script>
+	 loadMenu();
+	 loadHeader();
+	</script>
+	
+	<script src="js/select2.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	
+	<script>
+	$('.datepicker').datepicker({
+		  format: 'dd-mm-yyyy'
+		});
+	
+	$(".maskDate").mask("99-99-9999");
+	
+	$('.sel2').select2();
+	</script>
+
+</body>
+</html>

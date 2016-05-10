@@ -1,5 +1,5 @@
 package co.sharkanalytic.services;
 
-public class UserService {
+public class ReclamationService {
 
 }

@@ -16,4 +16,14 @@ public class SharkApplication {
 	public String home() {
 		return "index";
 	}
+	
+	@RequestMapping(value = "/menu")
+	public String menu() {
+		return "menu";
+	}
+	
+	@RequestMapping(value = "/header")
+	public String header() {
+		return "header";
+	}
 }
