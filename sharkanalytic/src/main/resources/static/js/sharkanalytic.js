@@ -41,3 +41,45 @@
                    });
           });
 	}
+	
+	
+	$('.loginform').on('submit', function(e) {
+        e.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function(result) {
+                	if(result!=""){
+                		alert(result);
+                		window.location='index.html';
+                	}else{
+                		window.location='login.html';
+                	}
+                },
+                error: function (xhr, desc, err) {
+                    var result=xhr.responseText;
+                    if(result!=""){
+                    	alert(result);
+                    	window.location='index.html';
+                	}else{
+                		window.location='login.html';
+                	}
+                   }
+                });
+           });
+	
+	function openModal(url){
+		var req = $.ajax({
+            url: url,
+            type: "GET",
+            dataType: "html"
+          });
+        req.done(function( data ) {
+        	$('#md-content').html(data);
+        	$('#open-modal').click();
+        });
+	}

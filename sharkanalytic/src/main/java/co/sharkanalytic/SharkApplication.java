@@ -14,7 +14,7 @@ public class SharkApplication {
 
 	@RequestMapping(value = "/")
 	public String home() {
-		return "index";
+		return "login";
 	}
 	
 }
