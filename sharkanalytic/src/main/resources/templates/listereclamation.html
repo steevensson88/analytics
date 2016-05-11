@@ -1,0 +1,112 @@
+					 <meta charset="UTF-8"/>
+						<div class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-12">
+									<div id="content-header" class="clearfix">
+										<div class="pull-left">
+											<ol class="breadcrumb">
+												<li><a href="#">Home</a></li>
+												<li class="active"><span>Reclamations</span></li>
+											</ol>
+											<h1>Reclamations</h1>
+										</div>
+										
+										<div id="div_succes" hidden="true" >
+										<div class="alert alert-success fade in pull-right" >
+									     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									     <i class="fa fa-check-circle fa-fw fa-lg"></i>
+									     <span id="succes"></span>
+									    </div>
+									    </div>
+									    
+									    <div id="div_error" hidden="true">
+									    <div class="alert alert-danger fade in pull-right"  >
+									     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+									     <i class="fa fa-times-circle fa-fw fa-lg"></i>
+									     <span id="error"></span>
+									    </div>
+									    </div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="row">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="main-box clearfix">
+											<header class="main-box-header clearfix">
+												<h2>Liste des reclamations</h2>
+											</header>
+											<div class="main-box-body clearfix">
+												<div class="table-responsive">
+													<table id="table-example-fixed" class="table table-hover">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th>Type</th>
+																<th>Date</th>
+																<th>Client</th>
+																<th>N° compte</th>
+																<th>Objet</th>
+																<th>Nb. jrs</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+	<script>
+		function loadData() {
+			var req = $.ajax({
+				url : '/listReclamations',
+				type : "GET",
+				dataType : "json"
+			});
+			req.done(function(data) {
+				var tableFixed = $('#table-example-fixed').dataTable({
+					'info' : false,
+					'pageLength' : 50,
+					'aaData' : data,
+					'aoColumns' : [ {
+						'mDataProp' : 'id_reclamation'
+					}, {
+						'mDataProp' : 'lib_m_reception'
+					}, 
+					, {
+						'mDataProp' : 'dateclient',render: function (data) {
+					        var date = new Date(data);
+					        var month = date.getMonth() + 1;
+					        return date.getDate() + "/" + (month.length > 1 ? month : "0" + month) + "/" + date.getFullYear();
+					    }
+					}{
+						'mDataProp' : 'nom_client'
+					}, {
+						'mDataProp' : 'num_compte_client'
+					}, {
+						'mDataProp' : 'objet_reclamation'
+					}, {
+						'mDataProp' : 'nbre_jrs'
+					}
+					]
+				});
+				new $.fn.dataTable.FixedHeader(tableFixed);
+			});
+		}
+		loadData();
+	</script>

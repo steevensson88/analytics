@@ -928,6 +928,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 	margin-left: 35px;
 	font-size: 0.875em;
 	font-weight: 700;
+	cursor: pointer;
 }
 
 #sidebar-nav .nav>li>a>span.label {
@@ -988,6 +989,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 	text-decoration: none;
 	transition: border-color 0.1s ease-in-out 0s, background-color 0.1s
 		ease-in-out 0s, box-shadow 0.1s ease-in-out 0s;
+		cursor: pointer;
 }
 
 #sidebar-nav .nav li .submenu>li:first-of-type>a {
@@ -3399,12 +3401,12 @@ input[type="radio"] {
 }
 
 #login-logo {
-	background: none repeat scroll 0 0 #34495e;
+	background: none repeat scroll 0 0 #95C9FD;
 	color: #fff;
 	display: block;
 	font-size: 2em;
 	font-weight: 400;
-	padding: 35px 0;
+	padding: 15px 0;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -8687,6 +8689,7 @@ to {
 	border-color: #03a9f4;
 	border-bottom-color: #e7ebee;
 	color: #484848;
+	
 }
 
 .theme-whbl #header-navbar .nav>li>a {

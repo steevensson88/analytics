@@ -12,6 +12,11 @@ public class ReclamationController {
 		return "formreclammation";
 	}
 	
+	@RequestMapping(value = "/listereclamation",method=RequestMethod.GET)
+	public String listereclamation() {
+		return "listereclamation";
+	}
+	
 	@RequestMapping(value = "/postReclamation",method=RequestMethod.POST)
 	public String postReclamation() {
 		System.out.println("test");

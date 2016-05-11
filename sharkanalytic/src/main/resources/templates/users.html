@@ -1,0 +1,141 @@
+<meta charset="UTF-8"/>
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="content-header" class="clearfix">
+                <div class="pull-left">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Paramètres</a></li>
+                        <li class="active"><span>Utilisateur</span></li>
+                    </ol>
+                    <h1>Utilisateur</h1>
+                </div>
+
+                <div id="div_succes" hidden="true" >
+                    <div class="alert alert-success fade in pull-right" >
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <i class="fa fa-check-circle fa-fw fa-lg"></i>
+                        <span id="succes"></span>
+                    </div>
+                </div>
+
+                <div id="div_error" hidden="true">
+                    <div class="alert alert-danger fade in pull-right"  >
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <i class="fa fa-times-circle fa-fw fa-lg"></i>
+                        <span id="error"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="main-box">
+                    <header class="main-box-header clearfix">
+                        <h2>Nouveau compte utilisateur</h2>
+                    </header>
+                    <div class="main-box-body clearfix">
+                        <form action="/postuser" role="form" method="post" enctype="multipart/form-data" class="sharkform">
+                            <div class="form-group">
+                                <label for="login"><span style="color:red">*</span>Login</label>
+                                <input type="text" required="required" class="form-control" name="login" id="login" placeholder="Nom"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><span style="color:red">*</span>Mot de passe</label>
+                                <input type="password" required="required" class="form-control" name="password" id="password" placeholder="Prénom"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password"><span style="color:red">*</span>Confirmer le mot de passe</label>
+                                <input type="password" required="required" class="form-control" name="confirm_password" id="confirm_password" placeholder="Prénom"/>
+                            </div>
+                            <div class="form-group row-select2">
+														<label for="id_profil"><span style="color:red">*</span>Profil</label>
+													
+														<select style="width:100%" required="required" id="id_profil" name="id_profil" class="sel2">
+														 <option value="">**Choisir**</option>
+														</select>
+														
+													</div>
+                            <div class="form-group">
+                                <div class="checkbox-nice">
+                                    <input type="checkbox" id="actif_user" checked="checked"/>
+                                    <label for="actif_user">Activer le compte  </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10">
+                                    <button type="submit" class="btn btn-success">Enrégistrer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-box clearfix">
+                    <header class="main-box-header clearfix">
+                        <h2>Liste des comptes utilisateur</h2>
+                    </header>
+                    <div class="main-box-body clearfix">
+                        <div class="table-responsive">
+                            <table id="table-example-fixed" class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Login</th>
+                                    <th>Profil</th>
+                                    <th>Actif</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function loadData() {
+        var req = $.ajax({
+            url : '/listusers',
+            type : "GET",
+            dataType : "json"
+        });
+        req.done(function(data) {
+            var tableFixed = $('#table-example-fixed').dataTable({
+                'info' : false,
+                'pageLength' : 50,
+                'aaData' : data,
+                'aoColumns' : [ {
+                    'mDataProp' : 'id_user'
+                },
+                {
+                    'mDataProp' : 'lib_profil'
+                },{
+                    'mDataProp' : 'login'
+                }, {
+                    'mDataProp' : 'actif_user',render: function (data) {
+                        if(data) return "Oui"; else return "Non";
+                    }
+                } ]
+            });
+            new $.fn.dataTable.FixedHeader(tableFixed);
+        });
+    }
+    loadData();
+    $('.sel2').select2();
+</script>
