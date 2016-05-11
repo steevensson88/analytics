@@ -12,102 +12,103 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "agences")
-
+@JsonIgnoreProperties({ "clientsList" })
 public class Agence implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   
-    @Column(name = "id_agence")
-    private Integer idAgence;
-    
-    @Column(name = "nom_agence")
-    private String nomAgence;
-    
-    @Column(name = "adresse_agence")
-    private String adresseAgence;
-    
-    @Column(name = "contact_agence")
-    private String contactAgence;
-    
-    @OneToMany(mappedBy = "idAgence", fetch = FetchType.LAZY)
-    private List<Client> clientsList;
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_agence")
+	private Integer idAgence;
 
-    public Agence() {
-    }
+	@Column(name = "nom_agence")
+	private String nomAgence;
 
-    public Agence(Integer idAgence) {
-        this.idAgence = idAgence;
-    }
+	@Column(name = "adresse_agence")
+	private String adresseAgence;
 
-    public Integer getIdAgence() {
-        return idAgence;
-    }
+	@Column(name = "contact_agence")
+	private String contactAgence;
 
-    public void setIdAgence(Integer idAgence) {
-        this.idAgence = idAgence;
-    }
+	@OneToMany(mappedBy = "idAgence", fetch = FetchType.EAGER)
+	private List<Client> clientsList;
 
-    public String getNomAgence() {
-        return nomAgence;
-    }
+	public Agence() {
+	}
 
-    public void setNomAgence(String nomAgence) {
-        this.nomAgence = nomAgence;
-    }
+	public Agence(Integer idAgence) {
+		this.idAgence = idAgence;
+	}
 
-    public String getAdresseAgence() {
-        return adresseAgence;
-    }
+	public Integer getIdAgence() {
+		return idAgence;
+	}
 
-    public void setAdresseAgence(String adresseAgence) {
-        this.adresseAgence = adresseAgence;
-    }
+	public void setIdAgence(Integer idAgence) {
+		this.idAgence = idAgence;
+	}
 
-    public String getContactAgence() {
-        return contactAgence;
-    }
+	public String getNomAgence() {
+		return nomAgence;
+	}
 
-    public void setContactAgence(String contactAgence) {
-        this.contactAgence = contactAgence;
-    }
+	public void setNomAgence(String nomAgence) {
+		this.nomAgence = nomAgence;
+	}
 
-    public List<Client> getClientsList() {
-        return clientsList;
-    }
+	public String getAdresseAgence() {
+		return adresseAgence;
+	}
 
-    public void setClientsList(List<Client> clientsList) {
-        this.clientsList = clientsList;
-    }
+	public void setAdresseAgence(String adresseAgence) {
+		this.adresseAgence = adresseAgence;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idAgence != null ? idAgence.hashCode() : 0);
-        return hash;
-    }
+	public String getContactAgence() {
+		return contactAgence;
+	}
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Agence)) {
-            return false;
-        }
-        Agence other = (Agence) object;
-        if ((this.idAgence == null && other.idAgence != null) || (this.idAgence != null && !this.idAgence.equals(other.idAgence))) {
-            return false;
-        }
-        return true;
-    }
+	public void setContactAgence(String contactAgence) {
+		this.contactAgence = contactAgence;
+	}
+
+	public List<Client> getClientsList() {
+		return clientsList;
+	}
+
+	public void setClientsList(List<Client> clientsList) {
+		this.clientsList = clientsList;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		hash += (idAgence != null ? idAgence.hashCode() : 0);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		// TODO: Warning - this method won't work in the case the id fields are
+		// not set
+		if (!(object instanceof Agence)) {
+			return false;
+		}
+		Agence other = (Agence) object;
+		if ((this.idAgence == null && other.idAgence != null)
+				|| (this.idAgence != null && !this.idAgence.equals(other.idAgence))) {
+			return false;
+		}
+		return true;
+	}
 
 	@Override
 	public String toString() {
-		return "Agence [idAgence=" + idAgence + ", nomAgence=" + nomAgence
-				+ ", adresseAgence=" + adresseAgence + ", contactAgence="
-				+ contactAgence + ", clientsList=" + clientsList + "]";
+		return "Agence [idAgence=" + idAgence + ", nomAgence=" + nomAgence + ", adresseAgence=" + adresseAgence
+				+ ", contactAgence=" + contactAgence + ", clientsList=" + clientsList + "]";
 	}
 
-    
 }

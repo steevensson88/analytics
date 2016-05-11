@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author GABI
  */
 @Entity
-@Table(name = "produits", catalog = "SharkAnalytic", schema = "")
+@Table(name = "produits")
 @XmlRootElement
 
 public class Produit implements Serializable {

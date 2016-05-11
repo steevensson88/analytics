@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author GABI
  */
 @Entity
-@Table(name = "unites", catalog = "SharkAnalytic", schema = "")
+@Table(name = "unites")
 @XmlRootElement
 
 public class Unite implements Serializable {

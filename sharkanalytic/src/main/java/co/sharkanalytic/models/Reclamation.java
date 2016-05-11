@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author GABI
  */
 @Entity
-@Table(name = "reclamations", catalog = "SharkAnalytic", schema = "")
+@Table(name = "reclamations")
 @XmlRootElement
 
 public class Reclamation implements Serializable {

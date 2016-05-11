@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author GABI
  */
 @Entity
-@Table(name = "mode_receptions", catalog = "SharkAnalytic", schema = "")
+@Table(name = "mode_receptions")
 @XmlRootElement
 
 public class ModeReception implements Serializable {
